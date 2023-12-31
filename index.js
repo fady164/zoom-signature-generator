@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const crypto = require("crypto");
@@ -23,8 +23,8 @@ app.post("/post", (req, res) => {
   console.log(oHeader, "oHeader");
 
   const oPayload = {
-    appKey: process.env.ZOOM_MEETING_SDK_KEY,
-    sdkKey: process.env.ZOOM_MEETING_SDK_KEY,
+    appKey: "LFlwAZulThuY3jZujKeO9g",
+    sdkKey: "LFlwAZulThuY3jZujKeO9g",
     iat: iat,
     exp: exp,
     role: 0,
@@ -42,7 +42,7 @@ app.post("/post", (req, res) => {
     "HS256",
     sHeader,
     sPayload,
-    process.env.ZOOM_MEETING_SDK_SECRET
+    "QYKHayNVpmD3aLG9QwtBYZouioJL4awm"
   );
 
   res.json({
