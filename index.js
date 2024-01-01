@@ -15,12 +15,7 @@ app.post("/post", (req, res) => {
   const iat = Math.round(new Date().getTime() / 1000) - 30;
   const exp = iat + 60 * 60 * 2;
 
-  console.log(iat, "iat");
-  console.log(exp, "exp");
-
   const oHeader = { alg: "HS256", typ: "JWT" };
-
-  console.log(oHeader, "oHeader");
 
   const oPayload = {
     appKey: "LFlwAZulThuY3jZujKeO9g",
@@ -30,13 +25,9 @@ app.post("/post", (req, res) => {
     role: 0,
     mn: req.body.meetingNumber,
   };
-  console.log(oPayload, "oPayload");
 
   const sHeader = JSON.stringify(oHeader);
   const sPayload = JSON.stringify(oPayload);
-
-  console.log(sHeader, "sHeader");
-  console.log(sPayload, "sPayload");
 
   const signature = KJUR.jws.JWS.sign(
     "HS256",
